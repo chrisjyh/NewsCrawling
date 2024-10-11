@@ -1,7 +1,10 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+from utill.common import log
 from utill.getKey import KeyConfig
+
 
 ## 이메일 전송 클레스
 class EmailSender:
@@ -13,6 +16,7 @@ class EmailSender:
         self.body = body
 
     def send_email(self):
+
         # 메일 생성
         msg = MIMEMultipart()
         msg['From'] = self.sender_email
@@ -30,9 +34,9 @@ class EmailSender:
 
             # 이메일 전송
             server.sendmail(self.sender_email, self.receiver_email, msg.as_string())
-            print("Email sent successfully!")
+            log("success", f"Email sent successfully!")
         except Exception as e:
-            print(f"Error: {e}")
+            log("error", f"Email Sent Error: {e}")
         finally:
             server.quit()
 

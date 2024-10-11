@@ -12,7 +12,7 @@ class KeyConfig:
     NAVER_CLIENT_ID = os.environ.get('NAVER_CLIENT_ID')
     NAVER_CLIENT_SECRET = os.environ.get('NAVER_CLIENT_SECRET')
 
-    # 없는 키 감지 함수
+    # 없는 키 감지
     @staticmethod
     def validate():
         required_vars = ['SENDER_ID', 'SENDER_PW', 'NAVER_CLIENT_ID', 'NAVER_CLIENT_SECRET']
