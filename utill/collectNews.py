@@ -10,6 +10,7 @@ CLIENT_ID = KeyConfig.NAVER_CLIENT_ID
 CLIENT_SECRET = KeyConfig.NAVER_CLIENT_SECRET
 
 
+# 네이버 뉴스 패치
 class NaverNewsFetcher:
     def __init__(self, keywords):
         self.keywords = keywords
@@ -43,10 +44,10 @@ class NaverNewsFetcher:
             response = requests.get(url, headers=headers, params=params)
             if response.status_code == 200:
                 data = response.json()
-                log("success","NaverNewsFetcher: get news data")
+                print("NaverNewsFetcher: get news data")
                 return data.get('items', [])
             elif response.status_code == 429:
-                log("error", "Rate limit exceeded. Waiting for 1 minute...")
+                print("Rate limit exceeded. Waiting for 1 minute...")
                 time.sleep(60)  # 1분 대기 후 재시도
             else:
                 print(f"Error: {response.status_code} - {response.text}")

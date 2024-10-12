@@ -4,8 +4,7 @@ import os
 # load .env
 load_dotenv()
 
-# 키값 가져오기
-
+# 키값 관리 함수
 class KeyConfig:
     SENDER_ID = os.environ.get('SENDER_ID')
     SENDER_PW = os.environ.get('SENDER_PW')

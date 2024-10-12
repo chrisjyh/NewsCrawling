@@ -1,8 +1,15 @@
 import sys
 
-from PyQt5.uic.uiparser import QtWidgets
+from PyQt5.QtWidgets import QApplication
 
-from ui.uiForm import Ui_Form, display
+from ui.uiForm import Ui_Form
+
+
+def display():
+    app = QApplication(sys.argv)
+    ex = Ui_Form()
+    ex.show()
+    sys.exit(app.exec_())
 
 if __name__ == "__main__":
     display()

@@ -34,18 +34,18 @@ class EmailSender:
 
             # 이메일 전송
             server.sendmail(self.sender_email, self.receiver_email, msg.as_string())
-            log("success", f"Email sent successfully!")
+            print(f"{self.sender_email} Email sent successfully!")
         except Exception as e:
-            log("error", f"Email Sent Error: {e}")
+            print(f"Email Sent Error: {e}")
         finally:
             server.quit()
 
 
-# Example usage
-if __name__ == "__main__":
-    email_sender = EmailSender(
-        subject="Your Subject Here",
-        body="This is the body of the email.",
-        receiver_email="chrisjyh@naver.com"
-    )
-    email_sender.send_email()
+# # Example usage
+# if __name__ == "__main__":
+#     email_sender = EmailSender(
+#         subject="Your Subject Here",
+#         body="This is the body of the email.",
+#         receiver_email="chrisjyh@naver.com"
+#     )
+#     email_sender.send_email()

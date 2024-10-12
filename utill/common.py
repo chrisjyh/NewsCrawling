@@ -2,7 +2,7 @@ import json
 import os
 import time
 
-
+# 루트 폴더 생성
 def get_root():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
